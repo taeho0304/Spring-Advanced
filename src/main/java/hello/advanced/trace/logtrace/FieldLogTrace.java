@@ -4,6 +4,11 @@ import hello.advanced.trace.TraceId;
 import hello.advanced.trace.TraceStatus;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * FieldLogTrace 는 싱글톤으로 등록된 스프링 빈이다. 이 객체의 인스턴스가 애플리케이션에 딱 1
+ * 존재한다는 뜻이다. 이렇게 하나만 있는 인스턴스의 FieldLogTrace.traceIdHolder 필드를 여러
+ * 쓰레드가 동시에 접근하기 때문에 문제가 발생한다
+ **/
 @Slf4j
 public class FieldLogTrace implements LogTrace {
     private static final String START_PREFIX = "-->";
